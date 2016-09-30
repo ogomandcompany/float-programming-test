@@ -18,4 +18,20 @@
  */
 module.exports = ( length ) => {
 
+    if(isNaN(length) || 'number' != typeof length) {
+        throw 'The supplied length parameter must be a numeric value.';
+    }
+
+    length = parseInt(length);
+    var result = [];
+
+    for(var i = 1; i <= length; i++) {
+        var item = '';
+        if(0 == i%3) {item+='fizz';}
+        if(0 == i%5) {item+='buzz';}
+        if('' === item) {item = i;}
+        result.push(item);
+    }
+
+    return result;
 };
