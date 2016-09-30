@@ -19,3 +19,11 @@ test( 'FINDER: finds strings that start with a', t => {
     t.deepEqual( result, [ 'ant', 'allegory' ], 'result is correct' );
     t.end();
 } );
+
+test('FINDER: Accepts an `input` array and a test function as parameters', t => {
+    t.throws(() => fpt.finder(null, function(){}), '`input` cannot be empty or null');
+    t.throws(() => fpt.finder(['fizz'], null), '`test` must be a function');
+    t.throws(() => fpt.finder(), '`input` and `test` parameters must be supplied');
+    t.equal(fpt.finder({}, function() {}), null, '`input` must be an array');
+    t.end();
+});

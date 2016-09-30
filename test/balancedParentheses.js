@@ -35,3 +35,11 @@ test( 'BALANCED PARENTHESES: returns false for string with no parentheses', t =>
     t.equal( result, false, 'result is correct' );
     t.end();
 } );
+
+test( 'BALANCED PARENTHESES: returns false for unbalanced string', t => {
+    const input = '(x + y))()';
+    const result = fpt.balancedParentheses( input );
+
+    t.equal( result, false, 'result is correct' );
+    t.end();
+} );
